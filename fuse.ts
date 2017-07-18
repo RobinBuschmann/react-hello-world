@@ -112,9 +112,8 @@ const tasks = {
     ;
   },
   serve([env]) {
-    const fuse = fuseBox(env);
-
     this.clearDist();
+    const fuse = fuseBox(env);
 
     fuse.dev({}, server => {
 
@@ -151,9 +150,8 @@ const tasks = {
     fuse.run();
   },
   build([env]) {
-    const fuse = fuseBox(env);
-
     this.clearDist();
+    const fuse = fuseBox(env);
 
     fuse
       .bundle(MAIN_BUNDLE)
