@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "pretty": true,
+    "strictNullChecks": true,
+    "lib": ["es6", "dom"]
+  },
+  "include": [
+    "./**/*.tsx",
+    "./**/*.ts",
+    "index.tsx"
+  ],
+  "exclude": [
+    "../node_modules"
+  ]
+}

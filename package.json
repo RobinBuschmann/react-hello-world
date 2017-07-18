@@ -1,0 +1,84 @@
+{
+  "name": "react-hello-world",
+  "version": "1.0.0",
+  "description": "Application skeleton for a moden web app",
+  "main": "index.js",
+  "scripts": {
+    "build-config": "tsc",
+    "serve": "npm run build-config && node fuse.js serve dev",
+    "serve:prod": "npm run build-config && node fuse.js serve prod",
+    "serve:qa": "npm run build-config && node fuse.js serve qa",
+    "build": "npm run build-config && node fuse.js build prod",
+    "build:qa": "npm run build-config && node fuse.js build qa",
+    "test": "mocha",
+    "lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'",
+    "cover": "nyc mocha"
+  },
+  "author": "Robin Buschmann",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "classnames": "^2.2.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.5.4",
+    "spectre.css": "^0.2.14"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/chai": "^4.0.0",
+    "@types/classnames": "^0.0.32",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.18",
+    "@types/react": "^15.0.33",
+    "@types/react-dom": "^15.5.0",
+    "@types/sinon": "^2.3.1",
+    "@types/sinon-chai": "^2.7.28",
+    "chai": "^4.0.2",
+    "cpr": "^2.0.2",
+    "enzyme": "^2.8.2",
+    "fuse-box": "2.0.0",
+    "jsdom": "^11.0.0",
+    "mocha": "^3.4.2",
+    "node-sass": "^4.5.2",
+    "nyc": "^11.0.2",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.3.4",
+    "sinon-chai": "^2.11.0",
+    "source-map-support": "^0.4.15",
+    "ts-node": "^3.0.6",
+    "tslint": "^5.2.0",
+    "typescript": "2.3.2",
+    "uglify-js": "^2.8.22"
+  },
+  "nyc": {
+    "lines": 85,
+    "statements": 85,
+    "functions": 85,
+    "branches": 85,
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "src/**/*.spec.tsx"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "cache": true,
+    "all": true,
+    "check-coverage": true,
+    "report-dir": "./coverage"
+  },
+  "directories": {
+    "test": "test"
+  }
+}

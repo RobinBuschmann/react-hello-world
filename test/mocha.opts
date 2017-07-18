@@ -1,0 +1,6 @@
+--compilers ts-node/register
+--require source-map-support/register test/dom.shim.js
+--recursive
+--full-trace
+--bail
+src/**/*.spec.tsx src/**/*.spec.ts
