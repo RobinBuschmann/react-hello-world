@@ -100,6 +100,7 @@ function fuseBox(env) {
 
 const tasks = {
   clearDist: function clearDist(currentPath = path.join(__dirname, DIST_FOLDER)) {
+    if (!existsSync(currentPath)) return;
     readdirSync(currentPath)
       .forEach(name => {
         const fullPath = path.join(currentPath, name);
