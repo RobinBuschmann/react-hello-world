@@ -77,10 +77,7 @@ const config: { [env: string]: FuseBoxOptions } = {
       }),
       ...DEFAULT_CONFIG.plugins,
       UglifyJSPlugin({})
-    ],
-    natives: {
-      process: false
-    }
+    ]
   }
 };
 
