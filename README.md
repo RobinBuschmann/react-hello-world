@@ -30,7 +30,7 @@ fuse-box can be configured in `fuse.ts`
 Run development server with
 
 ````shell
-npm run serve
+npm start
 ````
 For production environment:
 
