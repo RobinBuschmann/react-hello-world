@@ -1,11 +1,11 @@
 {
-  "name": "react-hello-world",
+  "name": "maple-ui",
   "version": "1.0.0",
   "description": "Application skeleton for a moden web app",
   "main": "index.js",
   "scripts": {
     "build-config": "tsc",
-    "serve": "npm run build-config && node fuse.js serve dev",
+    "start": "npm run build-config && node fuse.js serve dev",
     "serve:prod": "npm run build-config && node fuse.js serve prod",
     "serve:qa": "npm run build-config && node fuse.js serve qa",
     "build": "npm run build-config && node fuse.js build prod",
@@ -17,11 +17,12 @@
   "author": "Robin Buschmann",
   "license": "ISC",
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^2.13.6",
     "axios": "^0.16.1",
     "classnames": "^2.2.5",
     "react": "^15.6.1",
-    "react-dom": "^15.5.4",
-    "spectre.css": "^0.2.14"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -36,7 +37,7 @@
     "chai": "^4.0.2",
     "cpr": "^2.0.2",
     "enzyme": "^2.8.2",
-    "fuse-box": "2.0.0",
+    "fuse-box": "^2.3.3",
     "jsdom": "^11.0.0",
     "mocha": "^3.4.2",
     "node-sass": "^4.5.2",

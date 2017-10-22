@@ -14,9 +14,10 @@ import {
   EnvPlugin,
   WebIndexPlugin,
   HTMLPlugin,
-  ImageBase64Plugin, CSSResourcePlugin
+  FuseBoxOptions,
+  ImageBase64Plugin,
+  CSSResourcePlugin
 } from 'fuse-box';
-import {FuseBoxOptions} from "fuse-box/dist/typings/core/FuseBox";
 
 // CONFIGURATION
 // -------------------------------------------------
@@ -26,13 +27,14 @@ const MAIN_BUNDLE = `main-${getShortRandomString()}`;
 const ENTRY = '> index.tsx';
 const DEFAULT_CONFIG: FuseBoxOptions = {
   homeDir: "src",
+  target: 'browser',
   output: `${DIST_FOLDER}/$name.js`,
   plugins: [
     JSONPlugin(),
     ImageBase64Plugin(),
     SVGPlugin(),
     WebIndexPlugin({
-      title: "React Hello World",
+      title: "Maple UI",
       template: "src/index.html"
     }),
     CSSPlugin(),
@@ -44,6 +46,10 @@ const DEFAULT_CONFIG: FuseBoxOptions = {
     HTMLPlugin({useDefault: false}),
 
   ],
+  alias: {
+    // workaround to fix "WARNING Statement 'component-indexof.js' has failed to resolve in module 'component-classes'"
+    '~/component-indexof.js': 'component-indexof/index.js',
+  },
   shim: {
     axios: {
       source: 'node_modules/axios/dist/axios.min.js',
@@ -99,14 +105,14 @@ const tasks = {
   clearDist: function clearDist(currentPath = path.join(__dirname, DIST_FOLDER)) {
     if (!existsSync(currentPath)) return;
     readdirSync(currentPath)
-      .forEach(name => {
-        const fullPath = path.join(currentPath, name);
-        if (!statSync(fullPath).isDirectory()) {
-          unlinkSync(path.join(fullPath));
-        } else {
-          clearDist(fullPath);
-        }
-      })
+    .forEach(name => {
+      const fullPath = path.join(currentPath, name);
+      if (!statSync(fullPath).isDirectory()) {
+        unlinkSync(path.join(fullPath));
+      } else {
+        clearDist(fullPath);
+      }
+    })
     ;
   },
   serve([env]) {
@@ -140,9 +146,9 @@ const tasks = {
     });
 
     fuse
-      .bundle(MAIN_BUNDLE)
-      .instructions(ENTRY)
-      .watch().hmr()
+    .bundle(MAIN_BUNDLE)
+    .instructions(ENTRY)
+    .watch().hmr()
     ;
 
     fuse.run();
@@ -152,8 +158,8 @@ const tasks = {
     const fuse = fuseBox(env);
 
     fuse
-      .bundle(MAIN_BUNDLE)
-      .instructions(ENTRY)
+    .bundle(MAIN_BUNDLE)
+    .instructions(ENTRY)
     ;
 
     fuse.run();
