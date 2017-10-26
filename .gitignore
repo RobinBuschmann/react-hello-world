@@ -3,11 +3,6 @@
 .DS_Store
 .tmp
 
-# testing
-.nyc_output
-coverage
-!test/dom.shim.js
-
 # lib
 node_modules
 package-lock.json
@@ -20,3 +15,8 @@ build
 # IDE
 .idea
 *.iml
+
+# testing
+.nyc_output
+coverage
+!test/dom.shim.js
