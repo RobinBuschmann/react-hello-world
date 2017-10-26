@@ -16,7 +16,6 @@ import {
   HTMLPlugin,
   FuseBoxOptions,
   ImageBase64Plugin,
-  CSSResourcePlugin
 } from 'fuse-box';
 
 // CONFIGURATION

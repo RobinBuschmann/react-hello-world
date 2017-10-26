@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './App.scss';
 import {Button} from 'antd';
+import './App.scss';
 
 export const App = () => (
   <div className="app">Hello World
