@@ -1,3 +1,14 @@
+@import "../../../node_modules/sass-flex-mixin/_flex.scss";
+
 .app {
-  font-size: 10rem;
+  height: 100%;
+  @include flex-wrap(wrap);
+
+  .left-container {
+    width: 53%;
+  }
+  .main-container {
+    width: calc(47% - 64px);
+    min-width: 375px;
+  }
 }
