@@ -1,18 +1,22 @@
 # tmp
-.idea
 .fusebox
 .DS_Store
 .tmp
 
-# testing
-.nyc_output
-coverage
-!test/dom.shim.js
-
 # lib
 node_modules
+package-lock.json
 
 # build
 build
 **/*.js
 **/*.js.map
+
+# IDE
+.idea
+*.iml
+
+# testing
+.nyc_output
+coverage
+!test/dom.shim.js

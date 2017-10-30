@@ -1,20 +1,17 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "jsx": "react",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "sourceMap": true,
     "pretty": true
   },
   "files": [
-    "./fuse.ts"
+    "fuse.ts"
   ],
   "exclude": [
-    "src/app",
+    "src",
     "node_modules"
   ]
 }
