@@ -4,11 +4,6 @@
 .DS_Store
 .tmp
 
-# testing
-.nyc_output
-coverage
-!test/dom.shim.js
-
 # lib
 node_modules
 
@@ -16,3 +11,8 @@ node_modules
 build
 **/*.js
 **/*.js.map
+
+# testing
+.nyc_output
+coverage
+!test/dom.shim.js
