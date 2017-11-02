@@ -12,6 +12,7 @@ export class Child extends Component {
   @Inject jwtInterceptor: JWTInterceptor;
 
   render() {
+    this.loggerService = '';
     this.loggerService.log();
     console.log(this.interceptors);
     console.log(this.jwtInterceptor);

@@ -13,3 +13,4 @@ export const bindClass = (container: Container, {provide, useClass, noSingleton}
     binding.inSingletonScope();
   }
 };
+

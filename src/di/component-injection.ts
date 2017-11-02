@@ -10,20 +10,20 @@ export function componentInject(target, propertyKey, identifier?) {
 
 function setDependentProperty(target, propertyKey, identifier, isArrayType) {
   const GET_KEY = isArrayType ? 'getAll' : 'get';
-  const PREFIX = '$$';
-  const prefixedPropertyKey = `${PREFIX}${propertyKey}`;
 
   Object.defineProperty(target, propertyKey, {
     configurable: true,
     enumerable: true,
     get() {
-      if (!this[prefixedPropertyKey]) {
-        this[prefixedPropertyKey] = this.context.container[GET_KEY](identifier);
+      if (!this.hasOwnProperty(propertyKey)) {
+        const value = this.context.container[GET_KEY](identifier);
+        Object.defineProperty(this, propertyKey, {value});
+        return value;
       }
-      return this[prefixedPropertyKey];
     },
-    set(value) {
-      this[prefixedPropertyKey] = value;
+    set() {
+      // tslint:disable:no-console
+      console.warn(`Value cannot be set before it is injected (${target['constructor'].name} -> ${propertyKey})`);
     }
   });
 }
