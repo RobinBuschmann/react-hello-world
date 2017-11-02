@@ -2,41 +2,31 @@ import * as React from 'react';
 import {Container} from 'inversify';
 import {Component} from 'react';
 import {Provider} from './Provider';
-import {Binding} from './Binding';
-import {bindClass} from './ClassBinding';
-import {bindValue} from './ValueBinding';
-import {bindFactory} from './FactoryBinding';
+import {Binding, executeBindings} from './Binding';
 
 interface ModuleProps {
   providers?: Binding[];
+  autoBindInjectable?: boolean;
 }
 
 export class Module extends Component<ModuleProps> {
 
-  private container = new Container({autoBindInjectable: true});
-  private bindings = {
-    useClass: bindClass,
-    useValue: bindValue,
-    useFactory: bindFactory,
-  };
+  private container;
 
-  constructor(props, contenxt) {
+  constructor(props: ModuleProps, contenxt) {
     super(props, contenxt);
-    this.executeBindings(props);
+    this.container = this.createContainer(props);
+    executeBindings(this.container, props.providers);
   }
 
-  componentWillReceiveProps(props) {
-    this.executeBindings(props);
+  componentWillReceiveProps(props: ModuleProps) {
+    executeBindings(this.container, props.providers);
   }
 
-  executeBindings({providers}: ModuleProps) {
-    (providers || []).forEach((provider) => {
-      Object.keys(this.bindings)
-        .forEach(key => {
-          if (provider[key]) {
-            this.bindings[key](this.container, provider);
-          }
-        });
+  createContainer(props: ModuleProps) {
+    const DEFAULT_AUTO_BIND = true;
+    return new Container({
+      autoBindInjectable: props.autoBindInjectable !== void 0 ? props.autoBindInjectable : DEFAULT_AUTO_BIND
     });
   }
 

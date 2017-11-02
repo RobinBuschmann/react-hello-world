@@ -1,9 +1,24 @@
 import * as React from 'react';
 import './App.scss';
-import {Parent} from '../../di/Parent';
+import {Module} from '../../di/Module';
+import {LoggerService} from './LoggerService';
+import {Child} from './Child';
+import {INTERCEPTOR_TOKEN} from './Interceptor';
+import {APIInterceptor} from './APIInterceptor';
+import {JWTInterceptor} from './JWTInterceptor';
+import {SubService} from './SubService';
 
 export const App = () => (
   <div className="app">
-    <Parent value={'hello'} />
+    <Module autoBindInjectable={false}
+            providers={[
+              LoggerService,
+              SubService,
+              JWTInterceptor,
+              {provide: INTERCEPTOR_TOKEN, useClass: APIInterceptor},
+              {provide: INTERCEPTOR_TOKEN, useClass: JWTInterceptor},
+              ]}>
+      <Child/>
+    </Module>
   </div>
 );

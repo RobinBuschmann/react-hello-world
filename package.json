@@ -20,7 +20,7 @@
     "@types/prop-types": "^15.5.2",
     "axios": "^0.16.1",
     "classnames": "^2.2.5",
-    "inversify": "^4.4.0",
+    "inversify": "^4.5.0",
     "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.5.4",

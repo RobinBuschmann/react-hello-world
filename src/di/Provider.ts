@@ -9,6 +9,7 @@ interface ProviderProps {
 
 export class Provider extends Component<ProviderProps> {
   static childContextTypes = {container: object.isRequired};
+  static contextTypes = {container: object};
 
   componentWillReceiveProps() {
     // tslint:disable:no-console
@@ -16,7 +17,15 @@ export class Provider extends Component<ProviderProps> {
   }
 
   getChildContext() {
-    return {container: this.props.container};
+    const {container} = this.props;
+    this.trySetParentContainer(container);
+    return {container};
+  }
+
+  trySetParentContainer(container: Container) {
+    if (this.context.container && !container.parent) {
+      container.parent = this.context.container;
+    }
   }
 
   render() {

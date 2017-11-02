@@ -10,17 +10,20 @@ export function componentInject(target, propertyKey, identifier?) {
 
 function setDependentProperty(target, propertyKey, identifier, isArrayType) {
   const GET_KEY = isArrayType ? 'getAll' : 'get';
+  const PREFIX = '$$';
+  const prefixedPropertyKey = `${PREFIX}${propertyKey}`;
+
   Object.defineProperty(target, propertyKey, {
     configurable: true,
     enumerable: true,
     get() {
-      if (!this[propertyKey]) {
-        this[propertyKey] = this.context.container[GET_KEY](identifier);
+      if (!this[prefixedPropertyKey]) {
+        this[prefixedPropertyKey] = this.context.container[GET_KEY](identifier);
       }
-      return this[propertyKey];
+      return this[prefixedPropertyKey];
     },
     set(value) {
-      this[propertyKey] = value;
+      this[prefixedPropertyKey] = value;
     }
   });
 }
