@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './App.scss';
-import {Module} from '../../di/Module';
+import {Module} from '../../di/components/Module';
 import {LoggerService} from './LoggerService';
 import {Child} from './Child';
 import {INTERCEPTOR_TOKEN} from './Interceptor';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Container} from 'inversify';
 import {Component} from 'react';
 import {Provider} from './Provider';
-import {Binding, executeBindings} from './Binding';
+import {Binding, executeBindings} from '../bindings/Binding';
 
 interface ModuleProps {
   providers?: Binding[];

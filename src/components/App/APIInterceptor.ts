@@ -1,6 +1,6 @@
 import {Interceptor} from './Interceptor';
-import {Injectable} from '../../di/Injectable';
-import {Inject} from '../../di/Inject';
+import {Injectable} from '../../di/decorators/Injectable';
+import {Inject} from '../../di/decorators/Inject';
 import {SubService} from './SubService';
 
 @Injectable

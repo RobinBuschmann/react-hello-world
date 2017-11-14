@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import {componentInject} from './component-injection';
+import {componentInject} from '../component-injection';
 import {inject, interfaces} from 'inversify';
 import ServiceIdentifier = interfaces.ServiceIdentifier;
 

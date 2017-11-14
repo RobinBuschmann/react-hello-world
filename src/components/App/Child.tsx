@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Component} from 'react';
-import {Inject} from '../../di/Inject';
+import {Inject} from '../../di/decorators/Inject';
 import {LoggerService} from './LoggerService';
 import {Interceptor, INTERCEPTOR_TOKEN} from './Interceptor';
 import {JWTInterceptor} from './JWTInterceptor';
