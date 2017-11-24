@@ -21,6 +21,8 @@
     "classnames": "^2.2.5",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react.di": "next",
+    "reflect-metadata": "^0.1.10",
     "spectre.css": "^0.2.14"
   },
   "devDependencies": {
