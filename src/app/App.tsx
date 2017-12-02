@@ -7,6 +7,6 @@ import {HelloWorld} from './hello-world/HelloWorld';
 @Module()
 export class App extends Component {
   render() {
-    return (<HelloWorld/>);
+    return <HelloWorld/>;
   }
 }
